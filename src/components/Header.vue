@@ -3,12 +3,16 @@
 		<div class="header__container">
 			<div class="header__top">
 				<div class="header__logo logo">
-					<img src="../assets/logo.png" class="logo__image" alt="PetsPace" />
+					<router-link to="/">
+						<img src="../assets/logo.png" class="logo__image" alt="PetsPace" />
+					</router-link>
 					<div class="logo__text">Опыт, создающий дружбу навсегда</div>
 				</div>
 				<div class="header__main main">
-					<router-link to="/login"><Button v-if="!userStore.user"
-							@click="userStore.user = true">Вход/регистрация</Button></router-link>
+					<router-link to="/login">
+						<q-btn v-if="!userStore.user" @click="userStore.user = true" style="background: #F1942C; color: white"
+							icon-right="east" label="Вход/регистрация"></q-btn>
+					</router-link>
 					<div class="main__body" v-if="userStore.user">
 						<div class="main__buttons">
 							<div class="icon"><q-icon :name="matSearch" /></div>
@@ -183,8 +187,10 @@
 					<a href="#"><img src="../assets/tg-white.svg" alt=""></a>
 					<a href="#"><img src="../assets/tg-white.svg" alt=""></a>
 				</div>
-				<Button v-if="!userStore.user" @click="userStore.user = true">Вход/регистрация</Button>
-				<Button v-if="userStore.user" @click="userStore.user = false">Выйти</Button>
+				<q-btn v-if="!userStore.user" @click="userStore.user = true" style="background: #F1942C; color: white"
+					icon-right="east" label="Вход/регистрация"></q-btn>
+				<q-btn v-if="userStore.user" @click="userStore.user = false" style="background: #F1942C; color: white"
+					icon-right="east" label="Выйти"></q-btn>
 			</div>
 		</div>
 	</header>
@@ -193,7 +199,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { matSearch, matPerson, matFavorite, matShoppingCart, matMenu, matClose } from '@quasar/extras/material-icons'
-import Button from "./common/Button.vue"
 import { useUserStore } from '../stores/UserStore';
 const userStore = useUserStore();
 
@@ -204,7 +209,11 @@ const isActiveMenu = ref(false);
 .header {
 	color: #333333;
 
-
+	.q-btn {
+		text-transform: none;
+		font-weight: 400;
+		font-size: 16px;
+	}
 
 	&__container {
 		display: flex;
@@ -264,6 +273,8 @@ const isActiveMenu = ref(false);
 
 .main {
 	display: flex;
+
+
 
 	&__burger {
 		@media (min-width: 768.98px) {

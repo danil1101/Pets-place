@@ -321,7 +321,7 @@
 								<span>Цена:</span> 5 000 ₽
 							</div>
 							<div class="catalog-popular__footer">
-								<Button>В корзину</Button>
+								<q-btn style="background: #F1942C; color: white" icon-right="east" label="В корзину"></q-btn>
 								<div class="catalog-popular__favorite"><q-icon :name="matFavorite" /></div>
 							</div>
 						</div>
@@ -338,7 +338,7 @@
 								<span>Цена:</span> 5 000 ₽
 							</div>
 							<div class="catalog-popular__footer">
-								<Button>В корзину</Button>
+								<q-btn style="background: #F1942C; color: white" icon-right="east" label="В корзину"></q-btn>
 								<div class="catalog-popular__favorite"><q-icon :name="matFavorite" /></div>
 							</div>
 						</div>
@@ -355,7 +355,7 @@
 								<span>Цена:</span> 5 000 ₽
 							</div>
 							<div class="catalog-popular__footer">
-								<Button>В корзину</Button>
+								<q-btn style="background: #F1942C; color: white" icon-right="east" label="В корзину"></q-btn>
 								<div class="catalog-popular__favorite"><q-icon :name="matFavorite" /></div>
 							</div>
 						</div>
@@ -372,7 +372,7 @@
 								<span>Цена:</span> 5 000 ₽
 							</div>
 							<div class="catalog-popular__footer">
-								<Button>В корзину</Button>
+								<q-btn style="background: #F1942C; color: white" icon-right="east" label="В корзину"></q-btn>
 								<div class="catalog-popular__favorite"><q-icon :name="matFavorite" /></div>
 							</div>
 						</div>
@@ -389,7 +389,7 @@
 								<span>Цена:</span> 5 000 ₽
 							</div>
 							<div class="catalog-popular__footer">
-								<Button>В корзину</Button>
+								<q-btn style="background: #F1942C; color: white" icon-right="east" label="В корзину"></q-btn>
 								<div class="catalog-popular__favorite"><q-icon :name="matFavorite" /></div>
 							</div>
 						</div>
@@ -406,7 +406,7 @@
 								<span>Цена:</span> 5 000 ₽
 							</div>
 							<div class="catalog-popular__footer">
-								<Button>В корзину</Button>
+								<q-btn style="background: #F1942C; color: white" icon-right="east" label="В корзину"></q-btn>
 								<div class="catalog-popular__favorite"><q-icon :name="matFavorite" /></div>
 							</div>
 						</div>
@@ -423,7 +423,7 @@
 								<span>Цена:</span> 5 000 ₽
 							</div>
 							<div class="catalog-popular__footer">
-								<Button>В корзину</Button>
+								<q-btn style="background: #F1942C; color: white" icon-right="east" label="В корзину"></q-btn>
 								<div class="catalog-popular__favorite"><q-icon :name="matFavorite" /></div>
 							</div>
 						</div>
@@ -440,7 +440,7 @@
 								<span>Цена:</span> 5 000 ₽
 							</div>
 							<div class="catalog-popular__footer">
-								<Button>В корзину</Button>
+								<q-btn style="background: #F1942C; color: white" icon-right="east" label="В корзину"></q-btn>
 								<div class="catalog-popular__favorite"><q-icon :name="matFavorite" /></div>
 							</div>
 						</div>
@@ -457,7 +457,7 @@
 								<span>Цена:</span> 5 000 ₽
 							</div>
 							<div class="catalog-popular__footer">
-								<Button>В корзину</Button>
+								<q-btn style="background: #F1942C; color: white" icon-right="east" label="В корзину"></q-btn>
 								<div class="catalog-popular__favorite"><q-icon :name="matFavorite" /></div>
 							</div>
 						</div>
@@ -474,7 +474,7 @@
 								<span>Цена:</span> 5 000 ₽
 							</div>
 							<div class="catalog-popular__footer">
-								<Button>В корзину</Button>
+								<q-btn style="background: #F1942C; color: white" icon-right="east" label="В корзину"></q-btn>
 								<div class="catalog-popular__favorite"><q-icon :name="matFavorite" /></div>
 							</div>
 						</div>
@@ -491,7 +491,7 @@
 								<span>Цена:</span> 5 000 ₽
 							</div>
 							<div class="catalog-popular__footer">
-								<Button>В корзину</Button>
+								<q-btn style="background: #F1942C; color: white" icon-right="east" label="В корзину"></q-btn>
 								<div class="catalog-popular__favorite"><q-icon :name="matFavorite" /></div>
 							</div>
 						</div>
@@ -508,7 +508,7 @@
 								<span>Цена:</span> 5 000 ₽
 							</div>
 							<div class="catalog-popular__footer">
-								<Button>В корзину</Button>
+								<q-btn style="background: #F1942C; color: white" icon-right="east" label="В корзину"></q-btn>
 								<div class="catalog-popular__favorite"><q-icon :name="matFavorite" /></div>
 							</div>
 						</div>
@@ -559,7 +559,6 @@
 </template>
 
 <script setup lang="ts">
-import Button from "../components/common/Button.vue"
 import Marketing from '../components/common/Marketing.vue';
 import { matSearch, matFavorite } from '@quasar/extras/material-icons'
 import { ref } from 'vue'
@@ -622,8 +621,8 @@ const slide = ref(1)
 
 
 	.q-input {
-		overflow: hidden;
-
+		border-radius: 5px;
+		overflow: hidden !important;
 		width: 100%;
 
 		span {
@@ -1151,13 +1150,6 @@ const slide = ref(1)
 		}
 	}
 
-	&__favorite {
-		@media (max-width: 425.98px) {
-			position: absolute;
-			top: 2px;
-			right: 10px;
-		}
-	}
 
 	&__more {
 		font-size: 16px;
@@ -1277,12 +1269,38 @@ const slide = ref(1)
 		font-size: 22px;
 		gap: 15px;
 
+
+
+
+		.q-btn {
+			font-size: 15px;
+			padding: 4px 12px;
+
+			@media (max-width: 425.98px) {
+				font-size: 14px;
+				padding: 3px 6px;
+			}
+		}
+
 		@media (max-width: 425.98px) {
 			gap: 0;
 		}
 
 		justify-content: space-between;
 	}
+
+	&__favorite {
+		@media (max-width: 425.98px) {
+			position: absolute;
+			top: 2px;
+			right: 10px;
+
+
+		}
+
+
+	}
+
 }
 
 .catalog-services {
@@ -1405,9 +1423,6 @@ const slide = ref(1)
 
 .q-carousel__control {
 
-
-
-
 	& .q-icon {
 		color: #333333 !important;
 		width: 50px;
@@ -1416,4 +1431,9 @@ const slide = ref(1)
 		background-color: #E8E8E8;
 	}
 }
+
+.on-right {
+	font-size: 15px !important;
+}
 </style>
+
