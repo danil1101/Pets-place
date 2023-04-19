@@ -80,7 +80,7 @@
 
 	&__title {
 		font-size: 30px;
-		font-weight: 700;
+		font-weight: 500;
 		line-height: 120%;
 		text-align: center;
 		letter-spacing: -0.03em;
@@ -159,6 +159,7 @@
 		background: #FFFFFF;
 		border: 1px solid #D9D9D9;
 		padding: 15px;
+		font-size: 16px;
 
 		&::placeholder {
 			font-size: 18px;
