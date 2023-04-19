@@ -8,51 +8,52 @@
 					<div class="form__groups">
 						<div class="form__group">
 							<div class="form__label">Страна <span> * </span> </div>
-							<input type="text" class="form__input" placeholder="Выберите страну">
+							<q-input v-model="country" filled type="text" placeholder="Выберите страну"></q-input>
 						</div>
 						<div class="form__group">
 							<div class="form__label">Имя<span>*</span></div>
-							<input type="text" class="form__input" placeholder="Ваше Имя">
+							<q-input v-model="name" filled type="text" placeholder="Ваше Имя"></q-input>
 						</div>
 						<div class="form__group">
 							<div class="form__label">Телефон<span>*</span></div>
-							<input type="number" class="form__input" placeholder="+7 (***) ***-**-**">
+							<q-input v-model="number" filled type="number" placeholder="+7 (***) ***-**-**"></q-input>
 						</div>
 						<div class="form__group">
 							<div class="form__label">Пароль</div>
-							<input type="number" class="form__input" placeholder="Придумайте пароль 8 знаков">
+							<q-input v-model="password" filled type="text" placeholder="Придумайте пароль 8 знаков"></q-input>
 						</div>
 					</div>
 					<div class="form__groups">
 						<div class="form__group">
-							<div class="form__label">Страна <span> * </span> </div>
-							<input type="text" class="form__input" placeholder="Выберите страну">
+							<div class="form__label">Регион</div>
+							<q-input v-model="region" filled type="text" placeholder="Укажите регион"></q-input>
 						</div>
 						<div class="form__group">
-							<div class="form__label">Имя<span>*</span></div>
-							<input type="text" class="form__input" placeholder="Ваше Имя">
+							<div class="form__label">Имя</div>
+							<q-input v-model="surname" filled type="text" placeholder="Фамилия"></q-input>
 
 						</div>
 						<div class="form__group">
-							<div class="form__label">Телефон<span>*</span></div>
-							<input type="number" class="form__input" placeholder="+7 (***) ***-**-**">
+							<div class="form__label">E-mail</div>
+							<q-input v-model="email" filled type="text" placeholder="E-mail"></q-input>
 
 						</div>
 						<div class="form__group">
-							<div class="form__label">Пароль</div>
-							<input type="number" class="form__input" placeholder="Придумайте пароль 8 знаков">
-
+							<div class="form__label">Подтверждение пароля</div>
+							<q-input v-model="password" filled type="text" placeholder="Повторите пароль"></q-input>
 						</div>
 					</div>
-
 				</form>
 				<div class="register-page__dep dep">
 					<q-btn color="secondary" class="dep__button" label="Зарегестрироваться в ЛК"></q-btn>
 					<div class="dep__confirm">
-						<input type="checkbox" class="dep__chekbox">
-						<p class="dep__text">Нажимая на кнопку регистрации, вы даете согласие на обработку
-							персональных данных и
-							соглаетесь с <span>политикой конфиденциальности</span></p>
+						<div class="dep__checkbox checkbox">
+							<input id=" c_1" class="checkbox__input" data-error="Ошибка" type="checkbox" value="1" name="form[]">
+							<label for="c_1" class="checkbox__label"><span class="checkbox__text">Нажимая на кнопку регистрации, вы
+									даете согласие на обработку
+									персональных данных и
+									соглаетесь с <span>политикой конфиденциальности</span></span></label>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -61,7 +62,14 @@
 </template>
 
 <script setup lang="ts">
-
+import { ref } from 'vue';
+const country = ref('')
+const name = ref('')
+const number = ref('')
+const password = ref('')
+const region = ref('')
+const surname = ref('')
+const email = ref('')
 </script>
 
 <style scoped lang="scss">
@@ -148,8 +156,6 @@
 	}
 
 }
-
-
 
 .form {
 	display: flex;
@@ -244,7 +250,54 @@
 		align-items: start;
 	}
 
-	&__chekbox {}
+	&__checkbox {
+		.checkbox {
+			position: relative;
+
+			&:not(:last-child) {
+				margin-bottom: 5px;
+			}
+
+			&__input {
+				position: absolute;
+				width: 0;
+				height: 0;
+				opacity: 0;
+
+				&:focus+.checkbox__label:before {
+					box-shadow: 0 0 5px #000;
+				}
+
+				&:checked+.checkbox__label:before {
+					background: #000;
+				}
+			}
+
+			&__label {
+				cursor: pointer;
+				display: inline-flex;
+				align-items: center;
+				position: relative;
+				gap: 10px;
+
+				&:before {
+					content: "";
+					align-self: flex-start;
+					flex: 0 0 20px;
+					width: 20px;
+					height: 20px;
+					border: 1px solid #a7a9ac;
+				}
+			}
+
+			&__text {
+				span {
+					text-decoration: underline;
+				}
+			}
+		}
+
+	}
 
 	&__text {
 		font-size: 12px;
@@ -253,9 +306,52 @@
 		max-width: 335px;
 		padding-left: 8px;
 
-		span {
-			text-decoration: underline;
+
+	}
+}
+
+.checkbox {
+	position: relative;
+
+	&:not(:last-child) {
+		margin-bottom: em(5);
+	}
+
+	// .checkbox__input
+	&__input {
+		position: absolute;
+		width: 0;
+		height: 0;
+		opacity: 0;
+
+		&:focus+.checkbox__label:before {
+			box-shadow: 0 0 5px #000;
+		}
+
+		&:checked+.checkbox__label:before {
+			background: #000;
 		}
 	}
+
+	// .checkbox__label
+	&__label {
+		cursor: pointer;
+		display: inline-flex;
+		align-items: center;
+		position: relative;
+		gap: 10px;
+
+		&:before {
+			content: "";
+			align-self: flex-start;
+			flex: 0 0 20px;
+			width: 20px;
+			height: 20px;
+			border: 1px solid #a7a9ac;
+		}
+	}
+
+	// .checkbox__text
+	&__text {}
 }
 </style>

@@ -7,11 +7,11 @@
 				<form class="login-page__form form">
 					<div class="form__group">
 						<div class="form__label">Логин</div>
-						<input type="text" class="form__input" placeholder="Логин/email">
+						<q-input v-model="login" filled type="text" placeholder="Логин/email"></q-input>
 					</div>
 					<div class="form__group">
 						<div class="form__label">Пароль</div>
-						<input type="password" class="form__input" placeholder="Логин/email">
+						<q-input v-model="password" filled type="text" placeholder="*******"></q-input>
 						<span>Забыли пароль</span>
 					</div>
 					<q-btn color="secondary" :label="`Войти в личный кабинет`">
@@ -28,7 +28,9 @@
 </template>
 
 <script setup lang="ts">
-
+import { ref } from 'vue';
+const password = ref('')
+const login = ref('')
 </script>
 
 <style scoped lang="scss">
@@ -155,23 +157,6 @@
 		}
 	}
 
-	&__input {
-		background: #FFFFFF;
-		border: 1px solid #D9D9D9;
-		padding: 15px;
-		font-size: 16px;
-
-		&::placeholder {
-			font-size: 18px;
-
-			@media (max-width: 768.98px) {
-				font-size: 16px;
-			}
-
-			line-height: 100%;
-			color: #818181;
-		}
-	}
 }
 
 .dep {
