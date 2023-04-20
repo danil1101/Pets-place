@@ -10,13 +10,13 @@
 				</div>
 				<div class="header__main main">
 					<router-link to="/login">
-						<q-btn v-if="!userStore.user" @click="userStore.user = true" style="background: #F1942C; color: white"
-							icon-right="east" label="Вход/регистрация"></q-btn>
+						<q-btn v-if="!userStore.user" style="background: #F1942C; color: white" icon-right="east"
+							label="Вход/регистрация"></q-btn>
 					</router-link>
 					<div class="main__body" v-if="userStore.user">
 						<div class="main__buttons">
 							<div class="icon"><q-icon :name="matSearch" /></div>
-							<div class="icon"><q-icon :name="matPerson" /></div>
+							<div class="icon"><router-link to="/personal-account"><q-icon :name="matPerson" /></router-link></div>
 							<div class="icon"><q-icon :name="matFavorite" /> <span class="circle">5</span></div>
 							<div class="icon"><q-icon :name="matShoppingCart" /> <span class="circle">3</span></div>
 							<div class="main__burger">
@@ -213,6 +213,11 @@ const isActiveMenu = ref(false);
 		text-transform: none;
 		font-weight: 400;
 		font-size: 16px;
+		padding: 2px 10px;
+
+		@media (max-width: 768.98px) {
+			padding: 2px 10px;
+		}
 	}
 
 	&__container {
@@ -423,6 +428,7 @@ const isActiveMenu = ref(false);
 }
 
 .q-item {
+
 	font-weight: 500;
 	width: 100%;
 
@@ -499,6 +505,7 @@ const isActiveMenu = ref(false);
 		font-size: 18px;
 		font-weight: 600;
 		width: 100%;
+		text-align: center;
 
 		@media (max-width: 768.98px) {
 			width: 100%;
@@ -510,12 +517,12 @@ const isActiveMenu = ref(false);
 	}
 
 	&__item {
+		text-align: center;
 		font-weight: 600;
 		font-size: 18px;
 		border-right: 1px solid #fff;
 		max-width: 200px;
 		width: 100%;
-		text-align: center;
 
 		@media (max-width: 768.98px) {
 			border: none;

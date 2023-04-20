@@ -1,7 +1,6 @@
 <template>
 	<div class="register-page">
 		<div class="register-page__container">
-			<img class="register-page__img" src="../assets/RegisterPage/background.png">
 			<div class="register-page__body">
 				<div class="register-page__title">Регистрация в личный кабинет</div>
 				<form class="register-page__form form">
@@ -45,7 +44,10 @@
 					</div>
 				</form>
 				<div class="register-page__dep dep">
-					<q-btn color="secondary" class="dep__button" label="Зарегестрироваться в ЛК"></q-btn>
+					<router-link to="/">
+						<q-btn color="secondary" class="dep__button" @click="userStore.user = true"
+							label="Зарегестрироваться в ЛК"></q-btn>
+					</router-link>
 					<div class="dep__confirm">
 						<div class="dep__checkbox checkbox">
 							<input id=" c_1" class="checkbox__input" data-error="Ошибка" type="checkbox" value="1" name="form[]">
@@ -63,6 +65,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useUserStore } from '../stores/UserStore';
 const country = ref('')
 const name = ref('')
 const number = ref('')
@@ -70,6 +73,9 @@ const password = ref('')
 const region = ref('')
 const surname = ref('')
 const email = ref('')
+
+
+const userStore = useUserStore();
 </script>
 
 <style scoped lang="scss">

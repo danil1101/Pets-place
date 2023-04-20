@@ -6,11 +6,6 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/HomePage.vue'),
   },
   {
-    path: '/about',
-    name: 'user-setting-page',
-    component: () => import('../views/AboutPage.vue'),
-  },
-  {
     path: '/login',
     name: 'login-page',
     component: () => import('../views/LoginPage.vue'),
@@ -19,6 +14,16 @@ const routes: Array<RouteRecordRaw> = [
     path: '/register',
     name: 'register-page',
     component: () => import('../views/RegisterPage.vue'),
+  },
+  {
+    path: '/reset-password',
+    name: 'reset-password',
+    component: () => import('../views/ResetPasswordPage.vue'),
+  },
+  {
+    path: '/personal-account',
+    name: 'personal-account',
+    component: () => import('../views/PersonalAccountPage.vue'),
   },
 ];
 
