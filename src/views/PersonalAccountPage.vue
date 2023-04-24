@@ -9,19 +9,19 @@
 				<div class="personal-account-page__title">Ваш личный кабинет</div>
 				<div class="personal-account-page__subtitle">На сайте с: 22 мар. 2023 г</div>
 				<div class="personal-account-page__row column">
-					<div class="col">
+					<div class="personal-account-page__col col">
 						<span>Подтверждение E-mail</span>
 						<q-btn style="background: #22a094; color: white" label="Подтвердить"></q-btn>
 					</div>
-					<div class="col">
+					<div class="personal-account-page__col col --confirmed">
 						<span>Подтверждение номера телефона</span>
 						<q-btn style="background: none; color: white" label="Выполнено" class=""></q-btn>
 					</div>
-					<div class="col">
+					<div class="personal-account-page__col col">
 						<span>Данные профиля</span>
 						<q-btn style="background: #22a094; color: white" label="Мои данные"></q-btn>
 					</div>
-					<div class="col">
+					<div class="personal-account-page__col col">
 						<span>Разместить объявление</span>
 						<q-btn style="background: #F1942C; color: white" label="Создать объявление"></q-btn>
 					</div>
@@ -81,27 +81,31 @@
 
 	&__row {
 		width: 100%;
+	}
+	&__col{
+		padding: 12px;
+		display: flex;
+		justify-content: space-between;
+		flex: 1 1 100%;
+		align-items: center;
+		background: #fff;
 
-		.col {
-			padding: 12px;
-			display: flex;
-			justify-content: space-between;
-			flex: 1 1 100%;
-			align-items: center;
-			background: #fff;
-			transition: all 0.1s ease 0s;
-
-			.q-btn {
-				font-size: 14px;
-				padding: 2px 10px;
-			}
-
-			&:hover {
-				background: rgba(34, 160, 148, 0.1);
-			}
+		.q-btn {
+			font-size: 14px;
+			padding: 2px 10px;
 		}
 	}
 }
+.--confirmed {
+	background: rgba(34, 160, 148, 0.1);
+	border: 1px solid #FFFFFF;	
+	.q-btn {
+		color: #22A094 !important;
+		font-weight: 600 !important;
+		&:before {			box-shadow: none !important;}
+		background: none !important;
+	}
+		
+}
 
-.column {}
 </style>
